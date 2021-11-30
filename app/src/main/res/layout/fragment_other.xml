@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".ui.addpackage.OtherFragment">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/txtSleepNativeMethod"
+            android:hint="native函数名称,反调试手段,调用前睡眠等待附加调试"
+            android:minHeight="45dp"
+            style="@style/FormMargin"
+            android:textSize="18sp" />
+        <EditText
+            android:id="@+id/txtSmaliTrace"
+            style="@style/FormMargin"
+            android:gravity="top|left"
+            android:hint="java函数名称,smali指令trace"
+            android:minHeight="45dp"
+            android:textSize="18sp" />
+
+
+        <EditText
+            android:id="@+id/txtJsPath"
+            android:hint="持久化frida的js文件路径"
+            android:minHeight="45dp"
+            style="@style/FormMargin"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnListen"
+                android:text="监听"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="5dp"/>
+            <Button
+                android:id="@+id/btnListenWait"
+                android:text="监听并阻塞"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="5dp"/>
+            <Button
+                android:id="@+id/btnSelectFridaJs"
+                android:text="选择脚本"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="5dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

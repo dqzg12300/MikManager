@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".ui.addpackage.RomLogFragment">
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Switch
+            android:id="@+id/swInvokePrint"
+            style="@style/FormMargin"
+            android:text="ArtMethod函数调用打印"/>
+
+        <Switch
+            android:id="@+id/swRegisterNativePrint"
+            style="@style/FormMargin"
+            android:text="RegisterNative函数打印"/>
+
+        <Switch
+            android:id="@+id/swJNIMethodPrint"
+            style="@style/FormMargin"
+            android:text="JNI函数打印"/>
+
+
+    </LinearLayout>
+
+</FrameLayout>

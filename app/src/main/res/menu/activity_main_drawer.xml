@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_apps"
+            android:icon="@android:drawable/ic_dialog_dialer"
+            android:title="@string/menu_apps" />
+        <item
+            android:id="@+id/nav_global_setting"
+            android:icon="@android:drawable/ic_menu_manage"
+            android:title="@string/menu_global_setting" />
+<!--        <item-->
+<!--            android:id="@+id/nav_js_manager"-->
+<!--            android:icon="?attr/actionModePasteDrawable"-->
+<!--            android:title="@string/menu_js_manager" />-->
+        <item
+            android:id="@+id/nav_readme"
+            android:icon="@android:drawable/ic_menu_help"
+            android:title="@string/menu_readme" />
+        <item
+            android:id="@+id/nav_abort"
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="@string/menu_abort" />
+    </group>
+</menu>

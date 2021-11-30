@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.readme.ReadMeFragment">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtTitle1"
+            style="@style/FormMargin"
+            android:textStyle="bold"
+            android:text="MikManager简介：" />
+        <TextView
+            android:id="@+id/txtData1"
+            style="@style/FormMargin"
+            android:text="该软件用于对接MikRom来实现rom层面的逆向工具。仅仅提供界面化操作管理，并将用户需求保存为json数据，由MikRom解析后进行相应的执行，并导出结果到对应的目录。" />
+
+        <TextView
+            android:id="@+id/txtTitle2"
+            style="@style/FormMargin"
+            android:textStyle="bold"
+            android:text="MikRom：" />
+        <TextView
+            android:id="@+id/txtData2"
+            style="@style/FormMargin"
+            android:text="该软件用于解析MikManager生成的json需求并执行。起始基于FART的原理,重新包装的一个ROM逆向工具。整理了一些我觉得常用的功能，并将操作简化与整理。" />
+
+        <TextView
+            android:id="@+id/txtData3"
+            style="@style/FormMargin"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="该软件纯个人练手作品。非商业作品。此开源项目仅贡学习，请勿用于非法用途。" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

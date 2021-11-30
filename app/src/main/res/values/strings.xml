@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MikManager</string>
+    <string name="nav_header_title">MikManager</string>
+    <string name="nav_header_subtitle">rom逆向工具,请配合mikrom使用</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_apps">应用列表</string>
+    <string name="menu_global_setting">全局设置</string>
+    <string name="menu_js_manager">脚本管理</string>
+    <string name="menu_readme">简介</string>
+    <string name="menu_abort">关于</string>
+</resources>

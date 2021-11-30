@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.global.GlobalSettingFragment">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/txtBreakClass"
+            style="@style/FormMargin"
+            android:gravity="top|left"
+            android:hint="Break Class List"
+            android:minHeight="145dp"
+            android:textSize="18sp" />
+        <Switch
+            android:id="@+id/swSysHide"
+            android:text="隐藏系统应用"
+            style="@style/FormMargin"/>
+        <Button
+            android:id="@+id/btnSave"
+            style="@style/FormMargin"
+            android:text="Save" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.abort.AbortFragment">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txtTitle1"
+            style="@style/FormMargin"
+            android:textStyle="bold"
+            android:text="MikManager开源地址："/>
+        <TextView
+            android:id="@+id/txtUrl1"
+            style="@style/FormMargin"
+            android:text="https://github.com/dqzg12300/MikManager"/>
+        <TextView
+            android:id="@+id/txtTitle2"
+            style="@style/FormMargin"
+            android:textStyle="bold"
+            android:text="MikRom开源地址："/>
+        <TextView
+            android:id="@+id/txtUrl2"
+            style="@style/FormMargin"
+            android:text="https://github.com/dqzg12300/MikRom"/>
+        <TextView
+            android:id="@+id/txtTitle3"
+            style="@style/FormMargin"
+            android:textStyle="bold"
+            android:text="我的博客："/>
+        <TextView
+            android:id="@+id/txtUrl3"
+            style="@style/FormMargin"
+            android:text="https://missking.cc"/>
+
+        <TextView
+            android:id="@+id/txtTitle4"
+            style="@style/FormMargin"
+            android:textStyle="bold"
+            android:text="当前版本："/>
+        <TextView
+            android:id="@+id/txtData"
+            style="@style/FormMargin"
+            android:text="v0.0.1"/>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

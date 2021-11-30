@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AppsActivity" >
+
+    <TextView
+        android:id="@+id/appinfo_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="请选择目标应用"
+        android:gravity="center"
+        android:background="#888899"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        />
+
+    <ListView
+        android:id="@+id/appinfo_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appinfo_text"
+        android:divider="#666666"
+        android:dividerHeight="1dp"
+        >
+    </ListView>
+
+
+</RelativeLayout>

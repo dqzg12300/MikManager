@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_apps">
+
+    <fragment
+        android:id="@+id/nav_apps"
+        android:name="com.mik.mikmanager.ui.home.HomeFragment"
+        android:label="@string/menu_apps"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_global_setting"
+        android:name="com.mik.mikmanager.ui.global.GlobalSettingFragment"
+        android:label="@string/menu_global_setting"
+        tools:layout="@layout/fragment_global_setting" />
+
+    <fragment
+        android:id="@+id/nav_js_manager"
+        android:name="com.mik.mikmanager.ui.jsmanager.JsManagerFragment"
+        android:label="@string/menu_js_manager"
+        tools:layout="@layout/fragment_jsmanager" />
+
+    <fragment
+        android:id="@+id/nav_readme"
+        android:name="com.mik.mikmanager.ui.readme.ReadMeFragment"
+        android:label="@string/menu_readme"
+        tools:layout="@layout/fragment_readme" />
+
+    <fragment
+        android:id="@+id/nav_abort"
+        android:name="com.mik.mikmanager.ui.abort.AbortFragment"
+        android:label="@string/menu_abort"
+        tools:layout="@layout/fragment_abort" />
+</navigation>
