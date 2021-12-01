@@ -23,14 +23,28 @@
             android:minHeight="45dp"
             android:textSize="18sp" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/txtJsPath"
+                android:hint="持久化frida的js文件路径"
+                android:minHeight="45dp"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1.7"
+                android:textSize="18sp" />
 
-        <EditText
-            android:id="@+id/txtJsPath"
-            android:hint="持久化frida的js文件路径"
-            android:minHeight="45dp"
-            style="@style/FormMargin"
-            android:textSize="18sp" />
-
+            <EditText
+                android:id="@+id/txtPort"
+                android:text="27042"
+                android:minHeight="45dp"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:textSize="18sp" />
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

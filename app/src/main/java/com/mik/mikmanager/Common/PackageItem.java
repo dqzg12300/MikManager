@@ -36,7 +36,8 @@ public class PackageItem implements Parcelable {
     public String sleepNativeMethod;
     //持久化frida的js路径
     public String fridaJsPath;
-
+    //frida监听端口
+    public int port;
     //是否设置生效
     public boolean enabled;
     public PackageItem(){
@@ -49,6 +50,7 @@ public class PackageItem implements Parcelable {
         traceMethod = in.readString();
         sleepNativeMethod = in.readString();
         fridaJsPath = in.readString();
+        port=in.readInt();
         isTuoke = in.readByte() != 0;
         isDeep = in.readByte() != 0;
         isInvokePrint = in.readByte() != 0;
@@ -67,6 +69,7 @@ public class PackageItem implements Parcelable {
         dest.writeString(traceMethod);
         dest.writeString(sleepNativeMethod);
         dest.writeString(fridaJsPath);
+        dest.writeInt(port);
         dest.writeByte((byte) (isTuoke ? 1 : 0));
         dest.writeByte((byte) (isDeep ? 1 : 0));
         dest.writeByte((byte) (isInvokePrint ? 1 : 0));

@@ -228,8 +228,8 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
                 if(initOther){
                     item.sleepNativeMethod=otherFragment.txtSleepNativeMethod.getText().toString();
                     item.traceMethod=otherFragment.txtSmaliTrace.getText().toString();
-
                     item.fridaJsPath=otherFragment.txtJsPath.getText().toString().trim().replace("\n","");
+                    item.port=Integer.valueOf(otherFragment.txtPort.getText().toString().trim()).intValue();
                 }
 
                 if(initRomLog){
@@ -316,6 +316,7 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
             otherFragment.txtSmaliTrace.setText(packageData.traceMethod);
             otherFragment.txtSleepNativeMethod.setText(packageData.sleepNativeMethod);
             otherFragment.txtJsPath.setText(packageData.fridaJsPath);
+            otherFragment.txtPort.setText(packageData.port+"");
         }
     }
 

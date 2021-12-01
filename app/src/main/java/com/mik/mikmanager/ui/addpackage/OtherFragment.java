@@ -28,6 +28,7 @@ public class OtherFragment extends Fragment {
     public EditText txtJsPath;
     public Button btnListen;
     public Button btnListenWait;
+    public EditText txtPort;
 
     private FragmentListen listener;
 
@@ -66,6 +67,7 @@ public class OtherFragment extends Fragment {
         txtJsPath=(EditText)getActivity().findViewById(R.id.txtJsPath);
         btnListen=(Button)getActivity().findViewById(R.id.btnListen);
         btnListenWait=(Button)getActivity().findViewById(R.id.btnListenWait);
+        txtPort=(EditText)getActivity().findViewById(R.id.txtPort);
         listener.onOtherAttach();
     }
 }
