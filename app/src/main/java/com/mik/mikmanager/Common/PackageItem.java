@@ -41,7 +41,14 @@ public class PackageItem implements Parcelable {
     //是否设置生效
     public boolean enabled;
     public PackageItem(){
-
+        packageName="";
+        appName="";
+        breakClass="";
+        whiteClass="";
+        whitePath="";
+        traceMethod="";
+        sleepNativeMethod="";
+        fridaJsPath="";
     }
     protected PackageItem(Parcel in) {
         packageName = in.readString();

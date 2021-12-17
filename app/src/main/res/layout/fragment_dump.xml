@@ -9,19 +9,27 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <Switch
+                android:id="@+id/swTuoke"
+                style="@style/FormMargin"
+                android:text="启动脱壳"/>
+            <Switch
+                android:id="@+id/swDeep"
+                style="@style/FormMargin"
+                android:text="更深调用链"/>
             <EditText
                 android:id="@+id/txtWhiteClass"
                 style="@style/FormMargin"
                 android:gravity="top|left"
                 android:hint="脱壳主动调用的白名单,模糊匹配"
-                android:minHeight="145dp"
+                android:minHeight="40dp"
                 android:textSize="18sp" />
             <EditText
                 android:id="@+id/txtBreakClass"
                 style="@style/FormMargin"
                 android:gravity="top|left"
                 android:hint="脱壳主动调用的黑名单（如有使用白名单,则仅对白名单中的类拉黑）"
-                android:minHeight="145dp"
+                android:minHeight="40dp"
                 android:textSize="18sp" />
             <Button
                 android:id="@+id/btnSelectWhitePath"
@@ -37,15 +45,6 @@
                 android:minHeight="45dp"
                 style="@style/FormMargin"
                 android:textSize="18sp" />
-                <Switch
-                    android:id="@+id/swTuoke"
-                    style="@style/FormMargin"
-                    android:text="启动脱壳"/>
-                <Switch
-                    android:id="@+id/swDeep"
-                    style="@style/FormMargin"
-                    android:text="更深调用链"/>
+
         </LinearLayout>
-
-
 </FrameLayout>
