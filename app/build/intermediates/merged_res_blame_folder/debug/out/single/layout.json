@@ -1,0 +1,90 @@
+[
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/filedialogitem.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/filedialogitem.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_other.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_other.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/settings_activity.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/settings_activity.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_edit_package.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/activity_edit_package.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/app_info_item.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/app_info_item.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/content_main.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/content_main.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/package_item.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/package_item.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/app_bar_main.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/app_bar_main.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_rom_log.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_rom_log.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_jsmanager.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_jsmanager.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/nav_header_main.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/nav_header_main.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_work_app.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_work_app.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_abort.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_abort.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_readme.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_readme.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/setting.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/setting.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_apps.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/activity_apps.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_global_setting.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_global_setting.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_slideshow.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_slideshow.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_home.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_home.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_gallery.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_gallery.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_main.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_dump.xml",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_dump.xml"
+    }
+]

@@ -1,0 +1,210 @@
+[
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_fragment_home.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_home.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_content_main.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/content_main.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/drawable_side_nav_bar.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/drawable/side_nav_bar.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/navigation_mobile_navigation.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/navigation/mobile_navigation.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_fragment_other.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_other.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_nav_header_main.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/nav_header_main.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/drawable_log.png.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/drawable/log.png"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/drawable_filedialog_folder.png.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/drawable/filedialog_folder.png"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_filedialogitem.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/filedialogitem.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/drawable_filedialog_folder_up.png.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/drawable/filedialog_folder_up.png"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/drawable_filedialog_root.png.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/drawable/filedialog_root.png"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_app_bar_main.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/app_bar_main.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/drawable_fd.png.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/drawable/fd.png"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/menu_activity_main_drawer.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/menu/activity_main_drawer.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_setting.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/setting.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/drawable_filedialog_wavfile.png.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/drawable/filedialog_wavfile.png"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_activity_apps.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/activity_apps.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/drawable_filedialog_file.png.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/drawable/filedialog_file.png"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_app_info_item.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/app_info_item.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_settings_activity.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/settings_activity.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_fragment_jsmanager.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_jsmanager.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_fragment_abort.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_abort.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_fragment_readme.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_readme.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_fragment_gallery.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_gallery.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_fragment_rom_log.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_rom_log.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_package_item.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/package_item.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/drawable_ic_menu_slideshow.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/drawable/ic_menu_slideshow.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_activity_edit_package.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/activity_edit_package.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/xml_mediacontroller_fullscreen_selector.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/xml/mediacontroller_fullscreen_selector.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/drawable_ic_menu_camera.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/drawable/ic_menu_camera.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/drawable_ic_menu_gallery.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/drawable/ic_menu_gallery.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_fragment_dump.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_dump.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/menu_main.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_fragment_slideshow.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_slideshow.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_fragment_global_setting.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_global_setting.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/drawable_round_button.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/drawable/round_button.xml"
+    },
+    {
+        "merged": "/Users/jokky/work/MikManager/app/build/intermediates/res/merged/debug/layout_fragment_work_app.xml.flat",
+        "source": "/Users/jokky/work/MikManager/app/src/main/res/layout/fragment_work_app.xml"
+    }
+]
