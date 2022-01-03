@@ -29,6 +29,10 @@ public class OtherFragment extends Fragment {
     public Button btnListen;
     public Button btnListenWait;
     public EditText txtPort;
+    public EditText txtGadgetPath;
+    public EditText txtSoPath;
+    public Button btnSelectGadget;
+    public Button btnSelectSo;
 
     private FragmentListen listener;
 
@@ -68,6 +72,10 @@ public class OtherFragment extends Fragment {
         btnListen=(Button)getActivity().findViewById(R.id.btnListen);
         btnListenWait=(Button)getActivity().findViewById(R.id.btnListenWait);
         txtPort=(EditText)getActivity().findViewById(R.id.txtPort);
+        txtGadgetPath=(EditText)getActivity().findViewById(R.id.txtGadgetPath);
+        txtSoPath=(EditText)getActivity().findViewById(R.id.txtSoPath);
+        btnSelectGadget=(Button)getActivity().findViewById(R.id.btnSelectGadget);
+        btnSelectSo=(Button)getActivity().findViewById(R.id.btnSelectSo);
         listener.onOtherAttach();
     }
 }

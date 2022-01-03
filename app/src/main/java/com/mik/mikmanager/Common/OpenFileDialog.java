@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -96,7 +97,8 @@ public class OpenFileDialog {
         }  
           
         private int refreshFileList()  
-        {  
+        {
+            Log.i("mikmanager","load path:"+path);
             // 刷新文件列表  
             File[] files = null;  
             try{  
@@ -177,12 +179,17 @@ public class OpenFileDialog {
                 String ppt = fl.getParent();  
                 if(ppt != null){  
                     // 返回上一层  
-                    path = ppt;  
+                    path = ppt;
+                    Log.i("mikmanager","返回上一层");
                 }  
                 else{  
                     // 返回更目录  
-                    path = sRoot;  
-                }  
+                    path = sRoot;
+                    Log.i("mikmanager","返回根目录");
+                }
+                if(fn.equals(sRoot)){
+                    path = sRoot;
+                }
             }  
             else{  
                 File fl = new File(pt);  

@@ -38,6 +38,10 @@ public class PackageItem implements Parcelable {
     public String fridaJsPath;
     //frida监听端口
     public int port;
+    //手动选择的gadget路径，用来自行切换版本
+    public String gadgetPath;
+    //注入其他so
+    public String soPath;
     //是否设置生效
     public boolean enabled;
     public PackageItem(){
@@ -49,6 +53,8 @@ public class PackageItem implements Parcelable {
         traceMethod="";
         sleepNativeMethod="";
         fridaJsPath="";
+        gadgetPath="";
+        soPath="";
     }
     protected PackageItem(Parcel in) {
         packageName = in.readString();
@@ -65,6 +71,8 @@ public class PackageItem implements Parcelable {
         isJNIMethodPrint = in.readByte() != 0;
         whiteClass=in.readString();
         whitePath=in.readString();
+        gadgetPath=in.readString();
+        soPath=in.readString();
         enabled=in.readBoolean();
     }
 
@@ -84,6 +92,8 @@ public class PackageItem implements Parcelable {
         dest.writeByte((byte) (isJNIMethodPrint ? 1 : 0));
         dest.writeString(whiteClass);
         dest.writeString(whitePath);
+        dest.writeString(gadgetPath);
+        dest.writeString(soPath);
         dest.writeByte((byte) (enabled ? 1 : 0));
     }
 

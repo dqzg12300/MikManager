@@ -135,6 +135,8 @@ public class HomeFragment extends Fragment implements PackageAdapter.DeleteCallb
                 data.whitePath=item.get("whitePath")==null?"":item.get("whitePath").toString();
                 data.enabled=item.get("enabled")==null?false:(boolean)item.get("enabled");
                 data.port=item.get("port")==null?27042:Double.valueOf(item.get("port").toString()).intValue();
+                data.gadgetPath=item.get("gadgetPath")==null?"":item.get("gadgetPath").toString();
+                data.soPath=item.get("soPath")==null?"":item.get("soPath").toString();
                 packageList.add(data);
             }
             updateUi();

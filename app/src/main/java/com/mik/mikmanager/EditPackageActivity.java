@@ -34,6 +34,13 @@ import java.util.Map;
 
 public class EditPackageActivity extends FragmentActivity implements FragmentListen {
 
+    enum OpenDirType{
+        OpenFridaJs,
+        OpenWhite,
+        OpenGadget,
+        OpenSo,
+    }
+
     public AppInfo curAppInfo=null;
     private ArrayList<Fragment> fragments = new ArrayList<>();
 
@@ -130,50 +137,69 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
 
 
 
-    static private int openDialogId = 0;
-    static private int openType=0;
+//    static private int openDialogId = 0;
+    static private OpenDirType openType;
     @Override
     protected Dialog onCreateDialog(int id) {
-        if(id==openDialogId){
-            if(openType==0){
-                Map<String, Integer> images = new HashMap<String, Integer>();
-                // 下面几句设置各文件类型的图标， 需要你先把图标添加到资源文件夹
-                images.put(OpenFileDialog.sRoot, R.drawable.filedialog_root);	// 根目录图标
-                images.put(OpenFileDialog.sParent, R.drawable.filedialog_folder_up);	//返回上一层的图标
-                images.put(OpenFileDialog.sFolder, R.drawable.filedialog_folder);	//文件夹图标
-                images.put("js", R.drawable.filedialog_file);	//wav文件图标
-                images.put(OpenFileDialog.sEmpty, R.drawable.filedialog_root);
-                Dialog dialog = OpenFileDialog.createDialog(id, this, "打开文件", new CallbackBundle() {
-                            @Override
-                            public void callback(Bundle bundle) {
-                                String filepath = bundle.getString("path");
-                                otherFragment.txtJsPath.setText(filepath);
-                            }
-                        },
-                        ".js;",
-                        images);
-                return dialog;
-            }
-            if(openType==1){
-                Map<String, Integer> images = new HashMap<String, Integer>();
-                // 下面几句设置各文件类型的图标， 需要你先把图标添加到资源文件夹
-                images.put(OpenFileDialog.sRoot, R.drawable.filedialog_root);	// 根目录图标
-                images.put(OpenFileDialog.sParent, R.drawable.filedialog_folder_up);	//返回上一层的图标
-                images.put(OpenFileDialog.sFolder, R.drawable.filedialog_folder);	//文件夹图标
-                images.put("txt", R.drawable.filedialog_file);	//wav文件图标
-                images.put(OpenFileDialog.sEmpty, R.drawable.filedialog_root);
-                Dialog dialog = OpenFileDialog.createDialog(id, this, "打开文件", new CallbackBundle() {
-                            @Override
-                            public void callback(Bundle bundle) {
-                                String filepath = bundle.getString("path");
-                                dumpFragment.txtWhitePath.setText(filepath);
-                            }
-                        },
-                        ".txt;",
-                        images);
-                return dialog;
-            }
+//        if(id==openDialogId){
+        Map<String, Integer> images = new HashMap<String, Integer>();
+        // 下面几句设置各文件类型的图标， 需要你先把图标添加到资源文件夹
+        images.put(OpenFileDialog.sRoot, R.drawable.filedialog_root);	// 根目录图标
+        images.put(OpenFileDialog.sParent, R.drawable.filedialog_folder_up);	//返回上一层的图标
+        images.put(OpenFileDialog.sFolder, R.drawable.filedialog_folder);	//文件夹图标
+        images.put("js", R.drawable.filedialog_file);
+        images.put("txt", R.drawable.filedialog_file);	//wav文件图标
+        images.put("so", R.drawable.filedialog_file);	//wav文件图标
+        images.put(OpenFileDialog.sEmpty, R.drawable.filedialog_root);
+        if(openType==OpenDirType.OpenFridaJs){
+            Dialog dialog = OpenFileDialog.createDialog(id, this, "打开文件", new CallbackBundle() {
+                        @Override
+                        public void callback(Bundle bundle) {
+                            String filepath = bundle.getString("path");
+                            otherFragment.txtJsPath.setText(filepath);
+                        }
+                    },
+                    ".js;",
+                    images);
+            return dialog;
         }
+        if(openType==OpenDirType.OpenWhite){
+            Dialog dialog = OpenFileDialog.createDialog(id, this, "打开文件", new CallbackBundle() {
+                        @Override
+                        public void callback(Bundle bundle) {
+                            String filepath = bundle.getString("path");
+                            dumpFragment.txtWhitePath.setText(filepath);
+                        }
+                    },
+                    ".txt;",
+                    images);
+            return dialog;
+        }
+        if(openType==OpenDirType.OpenGadget){
+            Dialog dialog = OpenFileDialog.createDialog(id, this, "打开文件", new CallbackBundle() {
+                        @Override
+                        public void callback(Bundle bundle) {
+                            String filepath = bundle.getString("path");
+                            otherFragment.txtGadgetPath.setText(filepath);
+                        }
+                    },
+                    ".so;",
+                    images);
+            return dialog;
+        }
+        if(openType==OpenDirType.OpenSo){
+            Dialog dialog = OpenFileDialog.createDialog(id, this, "打开文件", new CallbackBundle() {
+                        @Override
+                        public void callback(Bundle bundle) {
+                            String filepath = bundle.getString("path");
+                            otherFragment.txtSoPath.setText(filepath);
+                        }
+                    },
+                    ".so;",
+                    images);
+            return dialog;
+        }
+//        }
         return null;
     }
 
@@ -215,6 +241,9 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
                     return;
                 }
                 PackageItem item=new PackageItem();
+                if(packageData!=null){
+                    item=packageData;
+                }
                 item.packageName=workAppFragment.txtPackageName.getText().toString();
                 item.appName=workAppFragment.txtAppName.getText().toString();
                 if(initDump){
@@ -230,6 +259,8 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
                     item.traceMethod=otherFragment.txtSmaliTrace.getText().toString();
                     item.fridaJsPath=otherFragment.txtJsPath.getText().toString().trim().replace("\n","");
                     item.port=Integer.valueOf(otherFragment.txtPort.getText().toString().trim()).intValue();
+                    item.gadgetPath=otherFragment.txtGadgetPath.getText().toString();
+                    item.soPath=otherFragment.txtSoPath.getText().toString();
                 }
 
                 if(initRomLog){
@@ -273,8 +304,8 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
         dumpFragment.btnSelectWhitePath.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openType=1;
-                showDialog(openDialogId);
+                openType=OpenDirType.OpenWhite;
+                showDialog(openType.ordinal());
             }
         });
 
@@ -293,8 +324,22 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
         otherFragment.btnSelectFridaJs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openType=0;
-                showDialog(openDialogId);
+                openType=OpenDirType.OpenFridaJs;
+                showDialog(openType.ordinal());
+            }
+        });
+        otherFragment.btnSelectGadget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openType=OpenDirType.OpenGadget;
+                showDialog(openType.ordinal());
+            }
+        });
+        otherFragment.btnSelectSo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openType=OpenDirType.OpenSo;
+                showDialog(openType.ordinal());
             }
         });
 
@@ -317,6 +362,8 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
             otherFragment.txtSleepNativeMethod.setText(packageData.sleepNativeMethod);
             otherFragment.txtJsPath.setText(packageData.fridaJsPath);
             otherFragment.txtPort.setText(packageData.port+"");
+            otherFragment.txtGadgetPath.setText(packageData.gadgetPath);
+            otherFragment.txtSoPath.setText(packageData.soPath);
         }
     }
 
