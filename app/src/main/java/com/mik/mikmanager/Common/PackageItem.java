@@ -40,8 +40,16 @@ public class PackageItem implements Parcelable {
     public int port;
     //手动选择的gadget路径，用来自行切换版本
     public String gadgetPath;
-    //注入其他so
+    public String gadgetArm64Path;
+    //注入so
     public String soPath;
+    //注入dex
+    public String dexPath;
+    //注入dex的对应接口的类名
+    public String dexClassName;
+    //是否注入dobby
+    public boolean isDobby;
+
     //是否设置生效
     public boolean enabled;
     public PackageItem(){
@@ -54,7 +62,11 @@ public class PackageItem implements Parcelable {
         sleepNativeMethod="";
         fridaJsPath="";
         gadgetPath="";
+        gadgetArm64Path="";
         soPath="";
+        dexPath="";
+        dexClassName="";
+        isDobby=false;
     }
     protected PackageItem(Parcel in) {
         packageName = in.readString();
@@ -72,7 +84,11 @@ public class PackageItem implements Parcelable {
         whiteClass=in.readString();
         whitePath=in.readString();
         gadgetPath=in.readString();
+        gadgetArm64Path=in.readString();
         soPath=in.readString();
+        dexPath=in.readString();
+        dexClassName=in.readString();
+        isDobby=in.readBoolean();
         enabled=in.readBoolean();
     }
 
@@ -93,7 +109,11 @@ public class PackageItem implements Parcelable {
         dest.writeString(whiteClass);
         dest.writeString(whitePath);
         dest.writeString(gadgetPath);
+        dest.writeString(gadgetArm64Path);
         dest.writeString(soPath);
+        dest.writeString(dexPath);
+        dest.writeString(dexClassName);
+        dest.writeByte((byte) (isDobby ? 1 : 0));
         dest.writeByte((byte) (enabled ? 1 : 0));
     }
 

@@ -5,4 +5,5 @@ public interface FragmentListen{
     public void onWorkAppAttach();
     public void onOtherAttach();
     public void onRomLogAttach();
+    public void onRomInjectAttach();
 }

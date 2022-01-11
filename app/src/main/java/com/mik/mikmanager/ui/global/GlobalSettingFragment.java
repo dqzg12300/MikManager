@@ -2,7 +2,9 @@ package com.mik.mikmanager.ui.global;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.mik.mikmanager.Common.ConfigUtil;
 import com.mik.mikmanager.Common.FileHelper;
+import com.mik.mikmanager.Common.ServiceUtils;
 import com.mik.mikmanager.databinding.FragmentGlobalSettingBinding;
 
 public class GlobalSettingFragment extends Fragment {
@@ -34,7 +37,7 @@ public class GlobalSettingFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ConfigUtil.sysHide=binding.swSysHide.isChecked();
-                FileHelper.writeTxtToFile(binding.txtBreakClass.getText().toString(),"/sdcard/mikrom/config/","breakClass.config");
+                FileHelper.writeTxtToFile(binding.txtBreakClass.getText().toString(),"/dev/mikrom/config/breakClass.config");
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(binding.getRoot().getContext());
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 String sysHide=binding.swSysHide.isChecked()?"1":"0";
@@ -46,7 +49,12 @@ public class GlobalSettingFragment extends Fragment {
     }
 
     public void initUi(){
-        String res= FileHelper.ReadFileAll("/sdcard/mikrom/config/breakClass.config");
+        String res="";
+        try {
+            res=ServiceUtils.getiMikRom().readFile(ConfigUtil.breakConfigPath);
+        } catch (RemoteException e) {
+            Log.e(ConfigUtil.TAG,e.getMessage());
+        }
         if(res!=null&&res.length()>0){
             binding.txtBreakClass.setText(res);
         }

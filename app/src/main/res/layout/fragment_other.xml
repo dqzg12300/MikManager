@@ -42,7 +42,7 @@
                     android:textSize="18sp" />
                 <Button
                     android:id="@+id/btnSelectGadget"
-                    android:text="gadget"
+                    android:text="gadget32"
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
                     android:layout_weight="0.8"
@@ -54,21 +54,22 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <EditText
-                    android:id="@+id/txtSoPath"
-                    android:hint="注入so的路径"
+                    android:id="@+id/txtGadgetArm64Path"
+                    android:hint="gadgetArm64的路径,默认15.1"
                     android:minHeight="45dp"
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
                     android:layout_weight="1.7"
                     android:textSize="18sp" />
                 <Button
-                    android:id="@+id/btnSelectSo"
-                    android:text="选择so"
+                    android:id="@+id/btnSelectGadgetArm64"
+                    android:text="gadget64"
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
                     android:layout_weight="0.8"
                     android:layout_marginLeft="5dp"/>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

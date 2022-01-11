@@ -22,6 +22,7 @@ import com.mik.mikmanager.Common.OpenFileDialog;
 import com.mik.mikmanager.Common.PackageItem;
 import com.mik.mikmanager.ui.addpackage.DumpFragment;
 import com.mik.mikmanager.ui.addpackage.OtherFragment;
+import com.mik.mikmanager.ui.addpackage.RomInjectFragment;
 import com.mik.mikmanager.ui.addpackage.RomLogFragment;
 import com.mik.mikmanager.ui.addpackage.WorkAppFragment;
 
@@ -38,13 +39,15 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
         OpenFridaJs,
         OpenWhite,
         OpenGadget,
+        OpenGadgetArm64,
         OpenSo,
+        OpenDex,
     }
 
     public AppInfo curAppInfo=null;
     private ArrayList<Fragment> fragments = new ArrayList<>();
 
-    public static final String [] sTitle = new String[]{"应用","脱壳","日志打桩","辅助分析"};
+    public static final String [] sTitle = new String[]{"应用","脱壳","打桩","辅助","注入"};
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     public String opdata="";
@@ -56,11 +59,13 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
     DumpFragment dumpFragment=DumpFragment.newInstance(sTitle[1]);
     RomLogFragment romLogFragment=RomLogFragment.newInstance();
     OtherFragment otherFragment=OtherFragment.newInstance();
+    RomInjectFragment injectFragment=RomInjectFragment.newInstance();
 
     private boolean initWorkApp=false;
     private boolean initDump=false;
     private boolean initRomLog=false;
     private boolean initOther=false;
+    private boolean initInject=false;
 
     private void initView(){
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -69,6 +74,7 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
         mTabLayout.addTab(mTabLayout.newTab().setText(sTitle[1]));
         mTabLayout.addTab(mTabLayout.newTab().setText(sTitle[2]));
         mTabLayout.addTab(mTabLayout.newTab().setText(sTitle[3]));
+        mTabLayout.addTab(mTabLayout.newTab().setText(sTitle[4]));
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -92,7 +98,7 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
         fragments.add(dumpFragment);
         fragments.add(romLogFragment);
         fragments.add(otherFragment);
-
+        fragments.add(injectFragment);
         FragmentPagerAdapter mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -135,13 +141,10 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
         }
     }
 
-
-
 //    static private int openDialogId = 0;
     static private OpenDirType openType;
     @Override
     protected Dialog onCreateDialog(int id) {
-//        if(id==openDialogId){
         Map<String, Integer> images = new HashMap<String, Integer>();
         // 下面几句设置各文件类型的图标， 需要你先把图标添加到资源文件夹
         images.put(OpenFileDialog.sRoot, R.drawable.filedialog_root);	// 根目录图标
@@ -187,19 +190,50 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
                     images);
             return dialog;
         }
-        if(openType==OpenDirType.OpenSo){
+        if(openType==OpenDirType.OpenGadgetArm64){
             Dialog dialog = OpenFileDialog.createDialog(id, this, "打开文件", new CallbackBundle() {
                         @Override
                         public void callback(Bundle bundle) {
                             String filepath = bundle.getString("path");
-                            otherFragment.txtSoPath.setText(filepath);
+                            otherFragment.txtGadgetArm64Path.setText(filepath);
                         }
                     },
                     ".so;",
                     images);
             return dialog;
         }
-//        }
+        if(openType==OpenDirType.OpenSo){
+            Dialog dialog = OpenFileDialog.createDialog(id, this, "打开文件", new CallbackBundle() {
+                        @Override
+                        public void callback(Bundle bundle) {
+                            String filepath = bundle.getString("path");
+                            if(injectFragment.txtSoList.getText().toString().isEmpty()){
+                                injectFragment.txtSoList.setText(filepath);
+                            }else{
+                                injectFragment.txtSoList.setText(injectFragment.txtSoList.getText().toString()+"\n"+filepath);
+                            }
+                        }
+                    },
+                    ".so;",
+                    images);
+            return dialog;
+        }
+        if(openType==OpenDirType.OpenDex){
+            Dialog dialog = OpenFileDialog.createDialog(id, this, "打开文件", new CallbackBundle() {
+                        @Override
+                        public void callback(Bundle bundle) {
+                            String filepath = bundle.getString("path");
+                            if(injectFragment.txtDexList.getText().toString().isEmpty()){
+                                injectFragment.txtDexList.setText(filepath);
+                            }else{
+                                injectFragment.txtDexList.setText(injectFragment.txtDexList.getText().toString()+"\n"+filepath);
+                            }
+                        }
+                    },
+                    ".dex;",
+                    images);
+            return dialog;
+        }
         return null;
     }
 
@@ -260,14 +294,21 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
                     item.fridaJsPath=otherFragment.txtJsPath.getText().toString().trim().replace("\n","");
                     item.port=Integer.valueOf(otherFragment.txtPort.getText().toString().trim()).intValue();
                     item.gadgetPath=otherFragment.txtGadgetPath.getText().toString();
-                    item.soPath=otherFragment.txtSoPath.getText().toString();
-                }
+                    item.gadgetArm64Path=otherFragment.txtGadgetArm64Path.getText().toString();
 
+                }
+                if(initInject){
+                    item.soPath=injectFragment.txtSoList.getText().toString();
+                    item.dexPath=injectFragment.txtDexList.getText().toString();
+                    item.isDobby=injectFragment.swInjectDobby.isChecked();
+                    item.dexClassName=injectFragment.txtDexClassName.getText().toString();
+                }
                 if(initRomLog){
                     item.isInvokePrint=romLogFragment.swInvokePrint.isChecked();
                     item.isRegisterNativePrint=romLogFragment.swRegisterNativePrint.isChecked();
                     item.isJNIMethodPrint=romLogFragment.swJNIMethodPrint.isChecked();
                 }
+
                 Intent intent = getIntent();
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("packageData", item);
@@ -335,10 +376,11 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
                 showDialog(openType.ordinal());
             }
         });
-        otherFragment.btnSelectSo.setOnClickListener(new View.OnClickListener() {
+
+        otherFragment.btnSelectGadgetArm64.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openType=OpenDirType.OpenSo;
+                openType=OpenDirType.OpenGadgetArm64;
                 showDialog(openType.ordinal());
             }
         });
@@ -363,7 +405,7 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
             otherFragment.txtJsPath.setText(packageData.fridaJsPath);
             otherFragment.txtPort.setText(packageData.port+"");
             otherFragment.txtGadgetPath.setText(packageData.gadgetPath);
-            otherFragment.txtSoPath.setText(packageData.soPath);
+            otherFragment.txtGadgetArm64Path.setText(packageData.gadgetArm64Path);
         }
     }
 
@@ -374,6 +416,48 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
             romLogFragment.swInvokePrint.setChecked(packageData.isInvokePrint);
             romLogFragment.swRegisterNativePrint.setChecked(packageData.isRegisterNativePrint);
             romLogFragment.swJNIMethodPrint.setChecked(packageData.isJNIMethodPrint);
+        }
+    }
+
+    @Override
+    public void onRomInjectAttach() {
+        initInject=true;
+        injectFragment.btnSelectSo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openType=OpenDirType.OpenSo;
+                showDialog(openType.ordinal());
+            }
+        });
+
+        injectFragment.btnSelectDex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openType=OpenDirType.OpenDex;
+                showDialog(openType.ordinal());
+            }
+        });
+
+        injectFragment.btnClearSo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                injectFragment.txtSoList.setText("");
+            }
+        });
+
+        injectFragment.btnClearDex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                injectFragment.txtDexList.setText("");
+            }
+        });
+
+        if(opdata!=null&&opdata.equals("edit")){
+            Log.e("mik","onRomInjectAttach");
+            injectFragment.txtSoList.setText(packageData.soPath);
+            injectFragment.txtDexList.setText(packageData.dexPath);
+            injectFragment.swInjectDobby.setChecked(packageData.isDobby);
+            injectFragment.txtDexClassName.setText(packageData.dexClassName);
         }
     }
 }

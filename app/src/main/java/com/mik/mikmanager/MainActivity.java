@@ -1,16 +1,14 @@
 package com.mik.mikmanager;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Menu;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -26,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.mik.mikmanager.Common.ConfigUtil;
 import com.mik.mikmanager.Common.FileHelper;
+import com.mik.mikmanager.Common.ServiceUtils;
 import com.mik.mikmanager.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,9 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
     private void InitDirectory(){
-        FileHelper.writeTxtToFile("该目录存放配置相关的内容\nmikrom.config:保存用户对应用的处理选项\nbreakClass.config:通用的脱壳拉黑类列表","/sdcard/mikrom/config/","README");
-        FileHelper.writeTxtToFile("该目录存放脱壳的结果，脱壳成功会生成对应的包名目录\n<size>_classlist.txt:类列表\n<size>_classlist_execute.txt:execute的触发时机获取的类列表\n<size>_dexfile.dex:脱壳结果\n<size>_deep_dexfile.dex:更深调用的脱壳结果\n<size>_dexfile_repair.dex:修复后的脱壳结果","/sdcard/mikrom/dump/","README");
-        FileHelper.writeTxtToFile("该目录存放持久化frida脚本","/sdcard/mikrom/js/","README");
+        FileHelper.writeTxtToFile("该目录存放脱壳的结果，脱壳成功会生成对应的包名目录\n<size>_classlist.txt:类列表\n<size>_classlist_execute.txt:execute的触发时机获取的类列表\n<size>_dexfile.dex:脱壳结果\n<size>_deep_dexfile.dex:更深调用的脱壳结果\n<size>_dexfile_repair.dex:修复后的脱壳结果","/dev/mikrom/dump/README");
+        FileHelper.writeTxtToFile("该目录存放持久化frida脚本","/sdcard/mikrom/js/README");
     }
 
     @Override
@@ -60,12 +58,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
+
         setContentView(binding.getRoot());
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each

@@ -3,9 +3,11 @@ package com.mik.mikmanager.Common;
 import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
+import android.os.RemoteException;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.mik.mikmanager.MainActivity;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -91,40 +93,29 @@ public class FileHelper {
     }
 
     public static void SaveMikromConfig(List<PackageItem> packageList){
+        Log.e(ConfigUtil.TAG,"SaveMikromConfig");
         Gson gson = new Gson();
         String savejson=gson.toJson(packageList);
-        FileHelper.deleteFile("/sdcard/mikrom/config/mikrom.confg");
-        FileHelper.writeTxtToFile(savejson,"/sdcard/mikrom/config/","mikrom.config");
+//        FileHelper.deleteFile("/dev/mikrom/config/mikrom.confg");
+//        FileHelper.writeTxtToFile(savejson,"/dev/mikrom/config/","mikrom.config");
+        try {
+            ServiceUtils.getiMikRom().writeFile(ConfigUtil.configPath,savejson);
+        } catch (RemoteException e) {
+            Log.e(ConfigUtil.TAG,"writeConfig err:"+e.getMessage());
+        }
     }
 
 
-    // 将字符串写入到文本文件中
-    // 在文件末尾追加内容
-    public static void writeTxtToFile(String strcontent, String filePath, String fileName) {
-        //生成文件夹之后，再生成文件，不然会出错
-        makeFilePath(filePath, fileName);
-
-        String strFilePath = filePath+fileName;
-        // 每次写入时，都换行写
+    public static void writeTxtToFile(String strcontent, String filePath) {
+        String strFilePath = filePath;
         String strContent = strcontent + "\n";  // \r\n 结尾会变成 ^M
-        /*
-        * 不同系统，有不同的换行符号：
-        在windows下的文本文件的每一行结尾，都有一个回车('\n')和换行('\r')
-        在linux下的文本文件的每一行结尾，只有一个回车('\n');
-        在Mac下的文本文件的每一行结尾，只有一个换行('\r');
-        因此：^M出现的原因： 在linux下打开windows编辑过的文件，就会在行末尾显示^M;
-        * */
         try {
             File file = new File(strFilePath);
+            makeFilePath(file.getParent(),file.getName());
             if (!file.exists()) {
-                Log.d(TAG, "Create the file:" + strFilePath);
                 file.getParentFile().mkdirs();
                 file.createNewFile();
             }
-//            RandomAccessFile raf = new RandomAccessFile(file, "rwd");
-//            raf.seek(file.length());
-//            raf.write(strContent.getBytes());
-//            raf.close();
             RandomAccessFile raf = new RandomAccessFile(file, "rwd");
             raf.setLength(0);
 
@@ -135,7 +126,7 @@ public class FileHelper {
             raf.close();
             //
         } catch (Exception e) {
-            Log.e(TAG, "Error on write File:" + e);
+            Log.d("MikRomService","Error on write File:" + e);
         }
     }
 
@@ -144,7 +135,7 @@ public class FileHelper {
         File file = null;
         makeRootDirectory(filePath);
         try {
-            file = new File(filePath + fileName);
+            file = new File(filePath +"/"+ fileName);
             if (!file.exists()) {
                 file.createNewFile();
             }

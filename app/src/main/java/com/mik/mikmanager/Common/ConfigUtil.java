@@ -1,9 +1,9 @@
 package com.mik.mikmanager.Common;
 
 public class ConfigUtil {
-    public static String jspath="/sdcard/mikrom/js";
-    public static String configPath="/sdcard/mikrom/config";
-    public static String dumpPath="/sdcard/mikrom/dump";
+
+    public static String configPath="/data/system/mik.conf";
+    public static String breakConfigPath="/data/system/break.conf";
     public static boolean sysHide=true;
-    public static String TAG="missk";
+    public static String TAG="MikManager";
 }

@@ -1,23 +1,21 @@
 package com.mik.mikmanager.ui.home;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.nfc.Tag;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.CheckBox;
 import android.widget.ListView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -27,8 +25,10 @@ import com.mik.mikmanager.Common.ConfigUtil;
 import com.mik.mikmanager.Common.FileHelper;
 import com.mik.mikmanager.Common.PackageAdapter;
 import com.mik.mikmanager.Common.PackageItem;
+import com.mik.mikmanager.Common.ServiceUtils;
 import com.mik.mikmanager.EditPackageActivity;
 import com.mik.mikmanager.R;
+
 import com.mik.mikmanager.databinding.FragmentHomeBinding;
 
 
@@ -44,7 +44,7 @@ public class HomeFragment extends Fragment implements PackageAdapter.DeleteCallb
     private List<PackageItem> packageList = new ArrayList<PackageItem>();
     private static int curPos=-1;
     private PackageAdapter adapter;
-
+    private static String TAG="MikManager";
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -72,8 +72,7 @@ public class HomeFragment extends Fragment implements PackageAdapter.DeleteCallb
         adapter = new PackageAdapter(binding.getRoot().getContext(), R.layout.package_item, packageList);
         adapter.setDeleteCallback(this);
         listView.setAdapter(adapter);
-
-        initData();
+        initData(root.getContext());
         return root;
     }
 
@@ -112,8 +111,16 @@ public class HomeFragment extends Fragment implements PackageAdapter.DeleteCallb
         updateUi();
     }
 
-    private void initData(){
-        String res= FileHelper.ReadFileAll("/sdcard/mikrom/config/mikrom.config");
+    private void initData(Context context){
+        String res= null;
+        try {
+            res = ServiceUtils.getiMikRom().readFile(ConfigUtil.configPath);
+            Log.e(ConfigUtil.TAG,"readConfig data:"+res);
+        } catch (RemoteException e) {
+            Log.e(ConfigUtil.TAG,"readConfig err:"+e.getMessage());
+            return;
+        }
+
         if(res!=null&&res.length()>0){
             textView.setText("");
             Gson gson=new Gson();
@@ -136,7 +143,11 @@ public class HomeFragment extends Fragment implements PackageAdapter.DeleteCallb
                 data.enabled=item.get("enabled")==null?false:(boolean)item.get("enabled");
                 data.port=item.get("port")==null?27042:Double.valueOf(item.get("port").toString()).intValue();
                 data.gadgetPath=item.get("gadgetPath")==null?"":item.get("gadgetPath").toString();
+                data.gadgetArm64Path=item.get("gadgetArm64Path")==null?"":item.get("gadgetArm64Path").toString();
                 data.soPath=item.get("soPath")==null?"":item.get("soPath").toString();
+                data.isDobby=item.get("isDobby")==null?false:(boolean)item.get("isDobby");
+                data.dexPath=item.get("dexPath")==null?"":item.get("dexPath").toString();
+                data.dexClassName=item.get("dexClassName")==null?"":item.get("dexClassName").toString();
                 packageList.add(data);
             }
             updateUi();
