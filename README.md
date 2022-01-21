@@ -11,19 +11,17 @@ MikManager是一个rom逆向工具的管理界面。该软件用于对接MikRom�
 
 ### 目录说明
 
-`/sdcard/mikrom/dump`该目录存放脱壳的结果，脱壳成功会生成对应的包名目录
+`/sdcard/Android/data/<PackageName>/files/dump`该目录存放脱壳的结果，脱壳成功会生成对应的包名目录
 
-`/sdcard/mikrom/dump/<size>_classlist.txt`:脱壳应用的类列表
+`/sdcard/Android/data/<PackageName>/files/dump/<size>_classlist.txt`:脱壳应用的类列表
 
-`/sdcard/mikrom/dump/<size>_classlist_execute.txt`execute的触发时机获取的类列表
+`/sdcard/Android/data/<PackageName>/files/dump/<size>_classlist_execute.txt`execute的触发时机获取的类列表
 
-`/sdcard/mikrom/dump/<size>_dexfile.dex`脱壳结果
+`/sdcard/Android/data/<PackageName>/files/dump/<size>_dexfile.dex`脱壳结果
 
-`/sdcard/mikrom/dump/<size>_deep_dexfile.dex`:更深调用的脱壳结果
+`/sdcard/Android/data/<PackageName>/files/dump/<size>_deep_dexfile.dex`:更深调用的脱壳结果
 
-`/sdcard/mikrom/dump/<size>_dexfile_repair.dex`修复后的脱壳结果
-
-`/sdcard/mikrom/js/`该目录存放持久化frida脚本
+`/sdcard/Android/data/<PackageName>/files/dump/<size>_dexfile_repair.dex`修复后的脱壳结果
 
 ### 功能
 

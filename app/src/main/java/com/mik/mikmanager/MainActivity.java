@@ -32,18 +32,12 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
-    private void InitDirectory(){
-        FileHelper.writeTxtToFile("该目录存放脱壳的结果，脱壳成功会生成对应的包名目录\n<size>_classlist.txt:类列表\n<size>_classlist_execute.txt:execute的触发时机获取的类列表\n<size>_dexfile.dex:脱壳结果\n<size>_deep_dexfile.dex:更深调用的脱壳结果\n<size>_dexfile_repair.dex:修复后的脱壳结果","/dev/mikrom/dump/README");
-        FileHelper.writeTxtToFile("该目录存放持久化frida脚本","/sdcard/mikrom/js/README");
-    }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode){
             case 1:
                 if(grantResults.length>0 && grantResults[0]== PackageManager.PERMISSION_GRANTED){
                     //权限已成功申请
-                    InitDirectory();
                 }else{
                     //用户拒绝授权
                     Toast.makeText(this, "无法获取SD卡读写权限", Toast.LENGTH_SHORT).show();
@@ -59,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-
         setContentView(binding.getRoot());
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -84,8 +77,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "正在请求权限", Toast.LENGTH_SHORT).show();
             //申请权限，特征码自定义为1，可在回调时进行相关判断
             ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS},1);
-        }else{
-            InitDirectory();
         }
     }
 
