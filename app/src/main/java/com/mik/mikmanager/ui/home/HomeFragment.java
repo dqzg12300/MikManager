@@ -2,6 +2,7 @@ package com.mik.mikmanager.ui.home;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.RemoteException;
@@ -76,6 +77,7 @@ public class HomeFragment extends Fragment implements PackageAdapter.DeleteCallb
         return root;
     }
 
+    //获取当前选择处理的所有应用
     public String getPackageListName(){
         StringBuilder sb=new StringBuilder();
         for(PackageItem item : packageList){
@@ -85,6 +87,7 @@ public class HomeFragment extends Fragment implements PackageAdapter.DeleteCallb
         return sb.toString();
     }
 
+    //设置每个元素的点击事件
     private class MyOnItemClickListener implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -98,12 +101,12 @@ public class HomeFragment extends Fragment implements PackageAdapter.DeleteCallb
         }
     }
 
-
+    //更新界面
     private void updateUi(){
         adapter.setData(packageList);
         adapter.notifyDataSetInvalidated();
     }
-
+    //删除元素
     @Override
     public void deletePosition(int saveposition) {
         packageList.remove(saveposition);
@@ -111,6 +114,21 @@ public class HomeFragment extends Fragment implements PackageAdapter.DeleteCallb
         updateUi();
     }
 
+    //获取所有安装的应用名称
+    public List<String> getInstallPackageNames(){
+        final PackageManager packageManager =binding.getRoot().getContext().getPackageManager();;
+        List<PackageInfo> pinfo = packageManager.getInstalledPackages(0);
+        List<String> pName = new ArrayList<String>();
+        if (pinfo != null) {
+            for (int i = 0; i < pinfo.size(); i++) {
+                String pn = pinfo.get(i).packageName;
+                pName.add(pn);
+            }
+        }
+        return pName;
+    }
+
+    //初始化数据
     private void initData(Context context){
         String res= null;
         try {
@@ -125,9 +143,13 @@ public class HomeFragment extends Fragment implements PackageAdapter.DeleteCallb
             textView.setText("");
             Gson gson=new Gson();
             List<LinkedTreeMap> tmpList= gson.fromJson(res,packageList.getClass());
+            List<String>pNames=getInstallPackageNames();
             for(LinkedTreeMap item :tmpList){
                 PackageItem data=new PackageItem();
                 data.packageName=item.get("packageName").toString();
+                if(!pNames.contains(data.packageName)){
+                    continue;
+                }
                 data.appName=item.get("appName").toString();
                 data.sleepNativeMethod=item.get("sleepNativeMethod")==null?"":item.get("sleepNativeMethod").toString();
                 data.breakClass=item.get("breakClass")==null?"":item.get("breakClass").toString();
@@ -154,6 +176,7 @@ public class HomeFragment extends Fragment implements PackageAdapter.DeleteCallb
         }
     }
 
+    //编辑项目后的返回
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

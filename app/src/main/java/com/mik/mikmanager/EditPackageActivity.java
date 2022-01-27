@@ -141,6 +141,24 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
         }
     }
 
+    public boolean checkPath(String filepath){
+        String packageName=workAppFragment.txtPackageName.getText().toString();
+        if(packageName.isEmpty()){
+            new AlertDialog.Builder(EditPackageActivity.this)
+                    .setTitle("提示")
+                    .setMessage("请先选择目标应用").show();
+            return false;
+        }
+        String goalPath="/sdcard/Android/data/"+workAppFragment.txtPackageName.getText().toString();
+        if(!filepath.contains(goalPath)){
+            new AlertDialog.Builder(EditPackageActivity.this)
+                    .setTitle("提示")
+                    .setMessage("请选择"+goalPath+"路径下的文件").show();
+            return false;
+        }
+        return true;
+    }
+
 //    static private int openDialogId = 0;
     static private OpenDirType openType;
     @Override
@@ -159,6 +177,9 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
                         @Override
                         public void callback(Bundle bundle) {
                             String filepath = bundle.getString("path");
+                            if(!checkPath(filepath)){
+                                return;
+                            }
                             otherFragment.txtJsPath.setText(filepath);
                         }
                     },
@@ -171,6 +192,9 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
                         @Override
                         public void callback(Bundle bundle) {
                             String filepath = bundle.getString("path");
+                            if(!checkPath(filepath)){
+                                return;
+                            }
                             dumpFragment.txtWhitePath.setText(filepath);
                         }
                     },
@@ -183,6 +207,9 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
                         @Override
                         public void callback(Bundle bundle) {
                             String filepath = bundle.getString("path");
+                            if(!checkPath(filepath)){
+                                return;
+                            }
                             otherFragment.txtGadgetPath.setText(filepath);
                         }
                     },
@@ -195,6 +222,9 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
                         @Override
                         public void callback(Bundle bundle) {
                             String filepath = bundle.getString("path");
+                            if(!checkPath(filepath)){
+                                return;
+                            }
                             otherFragment.txtGadgetArm64Path.setText(filepath);
                         }
                     },
@@ -207,6 +237,9 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
                         @Override
                         public void callback(Bundle bundle) {
                             String filepath = bundle.getString("path");
+                            if(!checkPath(filepath)){
+                                return;
+                            }
                             if(injectFragment.txtSoList.getText().toString().isEmpty()){
                                 injectFragment.txtSoList.setText(filepath);
                             }else{
@@ -223,6 +256,9 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
                         @Override
                         public void callback(Bundle bundle) {
                             String filepath = bundle.getString("path");
+                            if(!checkPath(filepath)){
+                                return;
+                            }
                             if(injectFragment.txtDexList.getText().toString().isEmpty()){
                                 injectFragment.txtDexList.setText(filepath);
                             }else{

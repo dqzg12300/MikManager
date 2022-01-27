@@ -59,16 +59,14 @@ public class AppsActivity extends Activity {
         PackageManager pm = getApplication().getPackageManager();
         List<PackageInfo>  packgeInfos = pm.getInstalledPackages(PackageManager.GET_UNINSTALLED_PACKAGES);
         appInfos = new ArrayList<AppInfo>();
-    	/* 获取应用程序的名称，不是包名，而是清单文件中的labelname
-			String str_name = packageInfo.applicationInfo.loadLabel(pm).toString();
-			appInfo.setAppName(str_name);
-    	 */
         for(PackageInfo packgeInfo : packgeInfos){
+            //如果设置隐藏系统相关应用，就忽略掉系统的应用
             if(ConfigUtil.sysHide){
                 if((packgeInfo.applicationInfo.flags& ApplicationInfo.FLAG_SYSTEM)!=0){
                     continue;
                 }
             }
+            //忽略掉自身应用
             if(packgeInfo.packageName.equals(this.getApplicationContext().getPackageName())){
                 continue;
             }
