@@ -96,8 +96,6 @@ public class FileHelper {
         Log.e(ConfigUtil.TAG,"SaveMikromConfig");
         Gson gson = new Gson();
         String savejson=gson.toJson(packageList);
-//        FileHelper.deleteFile("/dev/mikrom/config/mikrom.confg");
-//        FileHelper.writeTxtToFile(savejson,"/dev/mikrom/config/","mikrom.config");
         try {
             ServiceUtils.getiMikRom().writeFile(ConfigUtil.configPath,savejson);
         } catch (RemoteException e) {
