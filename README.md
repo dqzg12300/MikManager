@@ -7,7 +7,7 @@ MikManager是一个rom逆向工具的管理界面。该软件用于对接MikRom�
 > https://github.com/dqzg12300/MikRom
 
 ### 提示
-> 如果需要使用frida-gadget挂载脚本或者是脱壳的功能,需要打开目标应用的sdcard权限，否则会因为没有访问权限无法正常执行。
+> 所有需要选择的文件都要放在对应目标的sdcard目录中，路径是`/sdcard/Android/data/<PackageName>/`
 
 ### 目录说明
 
@@ -36,7 +36,7 @@ MikManager是一个rom逆向工具的管理界面。该软件用于对接MikRom�
 > * 内置dobby注入
 > * 支持自行切换frida-gadget版本
 > * 注入so
-> * 注入dex（实现对应的接口触发调用。目前仅测试使用）
+> * 注入dex（实现对应的接口触发调用。目前未完成）
 
 ### 附录
 
