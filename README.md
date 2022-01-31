@@ -52,3 +52,5 @@ MikManager是一个rom逆向工具的管理界面。该软件用于对接MikRom�
 
 ![](./mikmanager.gif)
 
+### 原理
+[FartExt超进化之奇奇怪怪的新ROM工具MikRom](https://bbs.pediy.com/thread-271358.htm)
