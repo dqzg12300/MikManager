@@ -7,7 +7,7 @@ MikManager是一个rom逆向工具的管理界面。该软件用于对接MikRom�
 > https://github.com/dqzg12300/MikRom
 
 ### 提示
-> 所有需要选择的文件都要放在对应目标的sdcard目录中，路径是`/sdcard/Android/data/<PackageName>`
+> 所有需要选择的文件都要放在对应目标的sdcard目录中，路径是`/sdcard/Android/data/<PackageName>`。
 > 脱壳的dump结果会保存在`/sdcard/Android/data/<PackageName>/files/dump/`目录，有些app会缺少files这个目录，需要自己手动创建一下。
 
 ### 目录说明
