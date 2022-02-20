@@ -21,6 +21,28 @@
             android:id="@+id/swSysHide"
             android:text="隐藏系统应用"
             style="@style/FormMargin"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/rdoFrida14"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:text="frida14" />
+                <RadioButton
+                    android:id="@+id/rdoFrida15"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:checked="true"
+                    android:text="frida15" />
+        </RadioGroup>
+
+
+
         <Button
             android:id="@+id/btnSave"
             style="@style/FormMargin"

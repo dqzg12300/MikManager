@@ -1,5 +1,7 @@
 package com.mik.mikmanager.ui.global;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.RemoteException;
@@ -37,12 +39,29 @@ public class GlobalSettingFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ConfigUtil.sysHide=binding.swSysHide.isChecked();
-                FileHelper.writeTxtToFile(binding.txtBreakClass.getText().toString(),"/dev/mikrom/config/breakClass.config");
+                try {
+                    ServiceUtils.getiMikRom().writeFile("/data/system/break.conf",binding.txtBreakClass.getText().toString());
+                    if(binding.rdoFrida14.isChecked()){
+                        ServiceUtils.getiMikRom().writeFile("/data/system/fver14.conf","1");
+                    }else{
+                        ServiceUtils.getiMikRom().writeFile("/data/system/fver14.conf","0");
+                    }
+                    String res=ServiceUtils.getiMikRom().readFile("/data/system/fver14.conf");
+                    Log.i(ConfigUtil.TAG,"fver14.conf data:"+res);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(binding.getRoot().getContext());
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 String sysHide=binding.swSysHide.isChecked()?"1":"0";
                 editor.putString("sysHide", sysHide);
                 editor.apply();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(root.getContext());
+                builder.setTitle("提示");
+                builder.setMessage("保存成功");
+                builder.show();
             }
         });
         return root;
@@ -50,13 +69,18 @@ public class GlobalSettingFragment extends Fragment {
 
     public void initUi(){
         String res="";
+        String fver="";
         try {
             res=ServiceUtils.getiMikRom().readFile(ConfigUtil.breakConfigPath);
+            fver=ServiceUtils.getiMikRom().readFile("/data/system/fver14.conf");
         } catch (RemoteException e) {
             Log.e(ConfigUtil.TAG,e.getMessage());
         }
         if(res!=null&&res.length()>0){
             binding.txtBreakClass.setText(res);
+        }
+        if(fver.contains("1")){
+            binding.rdoFrida14.setChecked(true);
         }
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(binding.getRoot().getContext());
         String sysHide = sharedPreferences.getString("sysHide", "");
@@ -65,6 +89,7 @@ public class GlobalSettingFragment extends Fragment {
         }else{
             binding.swSysHide.setChecked(true);
         }
+
     }
 
     @Override
