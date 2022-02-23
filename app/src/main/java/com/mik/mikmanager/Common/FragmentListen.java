@@ -6,4 +6,5 @@ public interface FragmentListen{
     public void onOtherAttach();
     public void onRomLogAttach();
     public void onRomInjectAttach();
+    public void onIORediectAttach();
 }

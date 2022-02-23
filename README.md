@@ -12,6 +12,8 @@ ROM从PixelExperience调整为aosp10，后续如果有更新，不再维护Pixel
 
 新增全局配置可以修改为默认使用frida14的gadget（仅支持aosp版本的）
 
+新增io重定向功能 （对应mikrom_1.0.2版本，暂未放出对应ROM下载）
+
 ### 提示
 > 所有需要选择的文件都要放在对应目标的sdcard目录中，路径是`/sdcard/Android/data/<PackageName>`。
 > 脱壳的dump结果会保存在`/sdcard/Android/data/<PackageName>/files/dump/`目录，有些app会缺少files这个目录，需要自己手动创建一下。

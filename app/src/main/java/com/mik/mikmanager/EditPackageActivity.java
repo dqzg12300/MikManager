@@ -21,6 +21,7 @@ import com.mik.mikmanager.Common.FragmentListen;
 import com.mik.mikmanager.Common.OpenFileDialog;
 import com.mik.mikmanager.Common.PackageItem;
 import com.mik.mikmanager.ui.addpackage.DumpFragment;
+import com.mik.mikmanager.ui.addpackage.IORediectFragment;
 import com.mik.mikmanager.ui.addpackage.OtherFragment;
 import com.mik.mikmanager.ui.addpackage.RomInjectFragment;
 import com.mik.mikmanager.ui.addpackage.RomLogFragment;
@@ -47,7 +48,7 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
     public AppInfo curAppInfo=null;
     private ArrayList<Fragment> fragments = new ArrayList<>();
 
-    public static final String [] sTitle = new String[]{"应用","脱壳","打桩","辅助","注入"};
+    public static final String [] sTitle = new String[]{"应用","脱壳","打桩","辅助","注入","IO"};
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     public String opdata="";
@@ -60,12 +61,14 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
     RomLogFragment romLogFragment=RomLogFragment.newInstance();
     OtherFragment otherFragment=OtherFragment.newInstance();
     RomInjectFragment injectFragment=RomInjectFragment.newInstance();
+    IORediectFragment ioRediectFragment=IORediectFragment.newInstance();
 
     private boolean initWorkApp=false;
     private boolean initDump=false;
     private boolean initRomLog=false;
     private boolean initOther=false;
     private boolean initInject=false;
+    private boolean initIORediect=false;
 
     private void initView(){
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -75,6 +78,7 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
         mTabLayout.addTab(mTabLayout.newTab().setText(sTitle[2]));
         mTabLayout.addTab(mTabLayout.newTab().setText(sTitle[3]));
         mTabLayout.addTab(mTabLayout.newTab().setText(sTitle[4]));
+        mTabLayout.addTab(mTabLayout.newTab().setText(sTitle[5]));
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -99,6 +103,7 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
         fragments.add(romLogFragment);
         fragments.add(otherFragment);
         fragments.add(injectFragment);
+        fragments.add(ioRediectFragment);
         FragmentPagerAdapter mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -344,6 +349,11 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
                     item.isRegisterNativePrint=romLogFragment.swRegisterNativePrint.isChecked();
                     item.isJNIMethodPrint=romLogFragment.swJNIMethodPrint.isChecked();
                 }
+                if(initIORediect){
+                    item.forbids=ioRediectFragment.txtForbids.getText().toString();
+                    item.rediectFile=ioRediectFragment.txtRediectFile.getText().toString();
+                    item.rediectDir=ioRediectFragment.txtRediectDir.getText().toString();
+                }
 
                 Intent intent = getIntent();
                 Bundle bundle = new Bundle();
@@ -494,6 +504,16 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
             injectFragment.txtDexList.setText(packageData.dexPath);
             injectFragment.swInjectDobby.setChecked(packageData.isDobby);
             injectFragment.txtDexClassName.setText(packageData.dexClassName);
+        }
+    }
+
+    @Override
+    public void onIORediectAttach() {
+        initIORediect=true;
+        if(opdata!=null&&opdata.equals("edit")){
+            ioRediectFragment.txtForbids.setText(packageData.forbids);
+            ioRediectFragment.txtRediectDir.setText(packageData.rediectDir);
+            ioRediectFragment.txtRediectFile.setText(packageData.rediectFile);
         }
     }
 }

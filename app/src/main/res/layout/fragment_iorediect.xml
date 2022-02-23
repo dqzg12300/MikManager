@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".ui.addpackage.RomLogFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollview"
+        android:scrollbars="vertical">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/txtForbids"
+                style="@style/FormMargin"
+                android:gravity="top|left"
+                android:hint="拒绝访问的目标路径"
+                android:minHeight="145dp"
+                android:textSize="18sp" />
+            <EditText
+                android:id="@+id/txtRediectFile"
+                style="@style/FormMargin"
+                android:gravity="top|left"
+                android:hint="重定向文件,格式为:文件A->文件B."
+                android:minHeight="145dp"
+                android:textSize="18sp" />
+            <EditText
+                android:id="@+id/txtRediectDir"
+                style="@style/FormMargin"
+                android:gravity="top|left"
+                android:hint="重定向目录,格式为:目录A->目录B."
+                android:minHeight="145dp"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

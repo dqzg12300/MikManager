@@ -49,7 +49,12 @@ public class PackageItem implements Parcelable {
     public String dexClassName;
     //是否注入dobby
     public boolean isDobby;
-
+    //文件重定向 格式为:文件A->文件B,多条用换行分割
+    public String rediectFile;
+    //文件重定向 格式为:文件A->文件B,多条用换行分割
+    public String rediectDir;
+    //拒绝访问 多条用换行分割
+    public String forbids;
     //是否设置生效
     public boolean enabled;
     public PackageItem(){
@@ -67,6 +72,9 @@ public class PackageItem implements Parcelable {
         dexPath="";
         dexClassName="";
         isDobby=false;
+        rediectFile="";
+        rediectDir="";
+        forbids="";
     }
     protected PackageItem(Parcel in) {
         packageName = in.readString();
@@ -89,6 +97,9 @@ public class PackageItem implements Parcelable {
         dexPath=in.readString();
         dexClassName=in.readString();
         isDobby=in.readBoolean();
+        rediectFile=in.readString();
+        rediectDir=in.readString();
+        forbids=in.readString();
         enabled=in.readBoolean();
     }
 
@@ -114,6 +125,9 @@ public class PackageItem implements Parcelable {
         dest.writeString(dexPath);
         dest.writeString(dexClassName);
         dest.writeByte((byte) (isDobby ? 1 : 0));
+        dest.writeString(rediectFile);
+        dest.writeString(rediectDir);
+        dest.writeString(forbids);
         dest.writeByte((byte) (enabled ? 1 : 0));
     }
 
