@@ -17,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 import com.mik.mikmanager.Common.AppInfo;
 import com.mik.mikmanager.Common.CallbackBundle;
+import com.mik.mikmanager.Common.FileHelper;
 import com.mik.mikmanager.Common.FragmentListen;
 import com.mik.mikmanager.Common.OpenFileDialog;
 import com.mik.mikmanager.Common.PackageItem;
@@ -354,7 +355,7 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
                     item.rediectFile=ioRediectFragment.txtRediectFile.getText().toString();
                     item.rediectDir=ioRediectFragment.txtRediectDir.getText().toString();
                 }
-
+                FileHelper.createSDCardDir(String.format("/sdcard/Android/data/%s/files",item.packageName));
                 Intent intent = getIntent();
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("packageData", item);
