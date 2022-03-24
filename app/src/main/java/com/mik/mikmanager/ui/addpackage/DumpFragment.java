@@ -31,6 +31,7 @@ public class DumpFragment extends Fragment {
     public EditText txtWhitePath;
     public Switch swTuoke;
     public Switch swDeep;
+    public Switch swBlock;
     private FragmentListen listener;
 
     private static final String KEY = "title";
@@ -80,6 +81,7 @@ public class DumpFragment extends Fragment {
         txtWhitePath=(EditText)getView().findViewById(R.id.txtWhitePath);
         swTuoke = (Switch)getView().findViewById(R.id.swTuoke);
         swDeep = (Switch)getView().findViewById(R.id.swDeep);
+        swBlock=(Switch)getView().findViewById(R.id.swBlockCall);
         listener.onDumpAttach();
     }
 }

@@ -57,6 +57,7 @@ public class PackageItem implements Parcelable {
     public String forbids;
     //是否设置生效
     public boolean enabled;
+    public boolean isBlock;
     public PackageItem(){
         packageName="";
         appName="";
@@ -75,6 +76,7 @@ public class PackageItem implements Parcelable {
         rediectFile="";
         rediectDir="";
         forbids="";
+        isBlock=false;
     }
     protected PackageItem(Parcel in) {
         packageName = in.readString();
@@ -101,6 +103,7 @@ public class PackageItem implements Parcelable {
         rediectDir=in.readString();
         forbids=in.readString();
         enabled=in.readBoolean();
+        isBlock=in.readBoolean();
     }
 
     @Override
@@ -129,6 +132,7 @@ public class PackageItem implements Parcelable {
         dest.writeString(rediectDir);
         dest.writeString(forbids);
         dest.writeByte((byte) (enabled ? 1 : 0));
+        dest.writeByte((byte) (isBlock ? 1 : 0));
     }
 
     @Override

@@ -23,6 +23,10 @@
                     android:id="@+id/swDeep"
                     style="@style/FormMargin"
                     android:text="更深调用链"/>
+                <Switch
+                    android:id="@+id/swBlockCall"
+                    style="@style/FormMargin"
+                    android:text="阻塞的主动调用"/>
                 <EditText
                     android:id="@+id/txtWhiteClass"
                     style="@style/FormMargin"

@@ -328,6 +328,7 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
                     item.isDeep=dumpFragment.swDeep.isChecked();
                     item.whiteClass=dumpFragment.txtWhiteClass.getText().toString();
                     item.whitePath=dumpFragment.txtWhitePath.getText().toString().trim().replace("\n","");
+                    item.isBlock=dumpFragment.swBlock.isChecked();
                 }
 
                 if(initOther){
@@ -403,6 +404,7 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
             dumpFragment.swTuoke.setChecked(packageData.isTuoke);
             dumpFragment.txtWhiteClass.setText(packageData.whiteClass);
             dumpFragment.txtWhitePath.setText(packageData.whitePath);
+            dumpFragment.swBlock.setChecked(packageData.isBlock);
         }
     }
 
