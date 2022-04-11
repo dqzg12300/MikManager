@@ -322,6 +322,7 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
                 }
                 item.packageName=workAppFragment.txtPackageName.getText().toString();
                 item.appName=workAppFragment.txtAppName.getText().toString();
+                item.isDebug=workAppFragment.swDebug.isChecked();
                 if(initDump){
                     item.breakClass=dumpFragment.txtBreakClass.getText().toString();
                     item.isTuoke=dumpFragment.swTuoke.isChecked();
@@ -381,6 +382,7 @@ public class EditPackageActivity extends FragmentActivity implements FragmentLis
                 if(packageData!=null){
                     workAppFragment.txtPackageName.setText(packageData.packageName);
                     workAppFragment.txtAppName.setText(packageData.appName);
+                    workAppFragment.swDebug.setChecked(packageData.isDebug);
                 }
             }
         }

@@ -38,6 +38,10 @@
             android:hint="应用包名"
             android:minHeight="45dp"
             android:textSize="18sp" />
+        <Switch
+            android:id="@+id/swDebug"
+            style="@style/FormMargin"
+            android:text="开启Debuggable"/>
         <Button
             android:id="@+id/btnSave"
             android:layout_width="fill_parent"
